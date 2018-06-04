@@ -1,0 +1,119 @@
+package com.example.swapyx.productlisting.db;
+
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
+@Entity
+public class GamingMouse {
+
+    @PrimaryKey
+    private int id;
+
+    private String name;
+    private String brand;
+    private String connection;
+
+    @ColumnInfo(name = "number_of_reviews")
+    private int numberOfUserReviews;
+
+    private String pros;
+    private String opinion;
+    private int likes;
+    private int dislikes;
+    private String color;
+
+    public GamingMouse(int id, String name, String brand, String connection, int numberOfUserReviews,
+                       String pros, String opinion, int likes, int dislikes, String color) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+        this.connection = connection;
+        this.numberOfUserReviews = numberOfUserReviews;
+        this.pros = pros;
+        this.opinion = opinion;
+        this.likes = likes;
+        this.dislikes = dislikes;
+        this.color = color;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getConnection() {
+        return connection;
+    }
+
+    public void setConnection(String connection) {
+        this.connection = connection;
+    }
+
+    public int getNumberOfUserReviews() {
+        return numberOfUserReviews;
+    }
+
+    public void setNumberOfUserReviews(int numberOfUserReviews) {
+        this.numberOfUserReviews = numberOfUserReviews;
+    }
+
+    public String getPros() {
+        return pros;
+    }
+
+    public void setPros(String pros) {
+        this.pros = pros;
+    }
+
+    public String getOpinion() {
+        return opinion;
+    }
+
+    public void setOpinion(String opinion) {
+        this.opinion = opinion;
+    }
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public int getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(int dislikes) {
+        this.dislikes = dislikes;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+}
