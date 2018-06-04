@@ -4,6 +4,10 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
+/**
+ * Model class to represent a Gaming Mouse.
+ * Also represents Entity for Room db.
+ */
 @Entity
 public class GamingMouse {
 
@@ -13,6 +17,7 @@ public class GamingMouse {
     private String name;
     private String brand;
     private String connection;
+    private int price;
 
     @ColumnInfo(name = "number_of_reviews")
     private int numberOfUserReviews;
@@ -23,12 +28,17 @@ public class GamingMouse {
     private int dislikes;
     private String color;
 
-    public GamingMouse(int id, String name, String brand, String connection, int numberOfUserReviews,
+    public GamingMouse() {
+    }
+
+    public GamingMouse(int id, String name, String brand, String connection, int price, int numberOfUserReviews,
                        String pros, String opinion, int likes, int dislikes, String color) {
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.connection = connection;
+        this.price = price;
+
         this.numberOfUserReviews = numberOfUserReviews;
         this.pros = pros;
         this.opinion = opinion;
@@ -67,6 +77,14 @@ public class GamingMouse {
 
     public void setConnection(String connection) {
         this.connection = connection;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public int getNumberOfUserReviews() {
