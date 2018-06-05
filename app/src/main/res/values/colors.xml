@@ -6,4 +6,8 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlack">#000000</color>
     <color name="colorBackground">#F4F4F4</color>
+    <color name="colorPrimaryText">#262626</color>
+    <color name="colorSecondaryText">#797979</color>
+    <color name="colorCardDivider">#D8D8D8</color>
+    <color name="colorTextGreen">#00B117</color>
 </resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="eight_dp">8dp</dimen>
+    <dimen name="height_product_card">135dp</dimen>
+    <dimen name="padding_normal">@dimen/eight_dp</dimen>
+    <dimen name="card_corner_big">@dimen/eight_dp</dimen>
+    <dimen name="margin_normal">@dimen/eight_dp</dimen>
+    <dimen name="height_card_divider">1dp</dimen>
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_mini">11sp</dimen>
+</resources>
