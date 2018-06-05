@@ -1,6 +1,8 @@
 package com.example.swapyx.productlisting.db;
 
 
+import com.example.swapyx.productlisting.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +34,12 @@ public class DataGenerator {
             1499,
             600,
             424};
+
+    private static final int[] IMAGES = new int[]{R.drawable.image1,
+            R.drawable.image2,
+            R.drawable.image3,
+            R.drawable.image4,
+            R.drawable.image5};
 
 
     private static final int[] NUMBER_OF_REVIEWS = new int[]{456,
@@ -85,6 +93,7 @@ public class DataGenerator {
             product.setBrand(BRANDS[index]);
             product.setConnection(CONNECTIONS[index]);
             product.setPrice(PRICES[index]);
+            product.setImageId(IMAGES[index]);
             product.setNumberOfUserReviews(NUMBER_OF_REVIEWS[index]);
             product.setPros(PROS[index]);
             product.setOpinion(OPINIONS[index]);

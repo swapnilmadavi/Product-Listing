@@ -19,6 +19,9 @@ public class GamingMouse {
     private String connection;
     private int price;
 
+    @ColumnInfo(name = "image_id")
+    private int imageId;
+
     @ColumnInfo(name = "number_of_reviews")
     private int numberOfUserReviews;
 
@@ -31,13 +34,15 @@ public class GamingMouse {
     public GamingMouse() {
     }
 
-    public GamingMouse(int id, String name, String brand, String connection, int price, int numberOfUserReviews,
+    public GamingMouse(int id, String name, String brand, String connection,
+                       int price, int imageId, int numberOfUserReviews,
                        String pros, String opinion, int likes, int dislikes, String color) {
         this.id = id;
         this.name = name;
         this.brand = brand;
         this.connection = connection;
         this.price = price;
+        this.imageId = imageId;
 
         this.numberOfUserReviews = numberOfUserReviews;
         this.pros = pros;
@@ -87,6 +92,14 @@ public class GamingMouse {
         this.price = price;
     }
 
+    public int getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(int imageId) {
+        this.imageId = imageId;
+    }
+
     public int getNumberOfUserReviews() {
         return numberOfUserReviews;
     }
@@ -133,5 +146,23 @@ public class GamingMouse {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "Gaming Mouse:- {" +
+                "id : " + id +
+                ", name : " + name +
+                ", brand : " + brand +
+                ", connection : " + connection +
+                ", price : " + price +
+                ", imageId : " + imageId +
+                ", num of reviews : " + numberOfUserReviews +
+                ", pros : " + pros +
+                ", opinion : " + opinion +
+                ", likes : " + likes +
+                ", dislikes : " + dislikes +
+                ", color : " + color +
+                "}";
     }
 }
