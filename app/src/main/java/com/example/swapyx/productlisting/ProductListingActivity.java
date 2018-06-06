@@ -1,8 +1,7 @@
-package com.example.swapyx.productlisting.ui;
+package com.example.swapyx.productlisting;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -15,11 +14,11 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.swapyx.productlisting.AppExecutors;
-import com.example.swapyx.productlisting.DataRepository;
-import com.example.swapyx.productlisting.R;
 import com.example.swapyx.productlisting.db.GamingMouse;
 import com.example.swapyx.productlisting.db.GamingMouseDatabase;
+import com.example.swapyx.productlisting.ui.BottomButtonPanel;
+import com.example.swapyx.productlisting.ui.EqualSpacingItemDecoration;
+import com.example.swapyx.productlisting.ui.ImageWithTextView;
 
 import java.util.List;
 
@@ -55,7 +54,7 @@ public class ProductListingActivity extends AppCompatActivity
         mProductRecyclerView.setLayoutManager(mLayoutManager);
         mProductRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mProductRecyclerView.addItemDecoration(
-                new EqualSpacingItemDecoration((int)ImageWithTextView.convertDpToPixel(8),
+                new EqualSpacingItemDecoration((int) ImageWithTextView.convertDpToPixel(8),
                         EqualSpacingItemDecoration.VERTICAL));
 
         // Create adapter passing in the news data

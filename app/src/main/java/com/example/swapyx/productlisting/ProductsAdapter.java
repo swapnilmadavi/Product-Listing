@@ -1,4 +1,4 @@
-package com.example.swapyx.productlisting.ui;
+package com.example.swapyx.productlisting;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.swapyx.productlisting.R;
 import com.example.swapyx.productlisting.db.GamingMouse;
+import com.example.swapyx.productlisting.ui.ImageWithTextView;
 
 import java.util.ArrayList;
 import java.util.List;
