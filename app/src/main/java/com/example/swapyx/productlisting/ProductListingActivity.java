@@ -2,6 +2,7 @@ package com.example.swapyx.productlisting;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.example.swapyx.productlisting.db.GamingMouse;
 import com.example.swapyx.productlisting.db.GamingMouseDatabase;
 import com.example.swapyx.productlisting.ui.BottomButtonPanel;
+import com.example.swapyx.productlisting.ui.BottomPanelBehaviour;
 import com.example.swapyx.productlisting.ui.EqualSpacingItemDecoration;
 import com.example.swapyx.productlisting.ui.ImageWithTextView;
 
@@ -47,6 +49,10 @@ public class ProductListingActivity extends AppCompatActivity
         getSupportActionBar().setTitle("Gaming Mouses");
 
         mBottomPanel.setOnClickListener(this);
+
+        // attaching bottom sheet behaviour - hide / show on scroll
+        CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mBottomPanel.getLayoutParams();
+        layoutParams.setBehavior(new BottomPanelBehaviour());
 
         // Set layout manager to position the items
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);

@@ -43,6 +43,6 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_bottom_panel"
         android:background="@color/colorWhite"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom" />
 
 </android.support.design.widget.CoordinatorLayout>
