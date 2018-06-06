@@ -18,27 +18,25 @@ public class DataRepository {
 
     private List<GamingMouse> cachedProducts;
 
-    private DataRepository(GamingMouseDatabase database, AppExecutors executors, RepositoryListener listener) {
+    private DataRepository(GamingMouseDatabase database, AppExecutors executors) {
         mDatabase = database;
         mExecutors = executors;
-        initializeDb(listener);
         Log.d("DataRepository", "INSTANCE created");
     }
 
     public static DataRepository getInstance(final GamingMouseDatabase database,
-                                             AppExecutors executors,
-                                             RepositoryListener listener) {
+                                             AppExecutors executors) {
         if (INSTANCE == null) {
             synchronized (DataRepository.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new DataRepository(database, executors, listener);
+                    INSTANCE = new DataRepository(database, executors);
                 }
             }
         }
         return INSTANCE;
     }
 
-    private void initializeDb(final RepositoryListener listener) {
+    public void initializeDb(final RepositoryListener listener) {
         Log.d("DataRepository", "initializing db...");
         Runnable initDbRunnable = new Runnable() {
             @Override
@@ -67,6 +65,11 @@ public class DataRepository {
             @Override
             public void run() {
                 final List<GamingMouse> productList = mDatabase.gamingMouseDao().getAllProducts();
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ignore) {
+
+                }
                 mExecutors.mainThread().execute(new Runnable() {
                     @Override
                     public void run() {

@@ -1,6 +1,5 @@
 package com.example.swapyx.productlisting.ui;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -106,16 +105,20 @@ public class ImageWithTextView extends LinearLayout {
     }
 
     private void setImageProperties() {
-
         LayoutParams layoutParams = new LayoutParams((int) textSizeInPixels + 1 , (int) textSizeInPixels + 1);
         mImageView.setLayoutParams(layoutParams);
         mImageView.setImageDrawable(imageDrawable);
     }
 
+    public void setText(String text) {
+        this.text = text;
+        mTextView.setText(text);
+    }
+
     /**
      * Utility method to convert dp to px.
      */
-    private static float convertDpToPixel(float dp){
+    public static float convertDpToPixel(float dp){
         DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         float px = dp * (metrics.densityDpi / 160f);
         return Math.round(px);
@@ -125,7 +128,7 @@ public class ImageWithTextView extends LinearLayout {
     /**
      * Utility method to convert px to dp.
      */
-    private static float convertPixelsToDp(float px){
+    public static float convertPixelsToDp(float px){
         DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
         float dp = px / (metrics.densityDpi / 160f);
         return Math.round(dp);
