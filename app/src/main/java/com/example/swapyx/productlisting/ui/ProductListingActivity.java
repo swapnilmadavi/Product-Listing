@@ -2,6 +2,7 @@ package com.example.swapyx.productlisting.ui;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.swapyx.productlisting.AppExecutors;
 import com.example.swapyx.productlisting.DataRepository;
@@ -21,11 +23,13 @@ import com.example.swapyx.productlisting.db.GamingMouseDatabase;
 
 import java.util.List;
 
-public class ProductListingActivity extends AppCompatActivity implements DataRepository.RepositoryListener {
+public class ProductListingActivity extends AppCompatActivity
+        implements DataRepository.RepositoryListener, BottomButtonPanel.OnClickListener {
     private Toolbar mToolbar;
     private ProgressBar mProgress;
     private RecyclerView mProductRecyclerView;
     private ProductsAdapter mProductsAdapter;
+    private BottomButtonPanel mBottomPanel;
     private DataRepository mDataRepository;
 
     @Override
@@ -37,10 +41,13 @@ public class ProductListingActivity extends AppCompatActivity implements DataRep
         mToolbar = (Toolbar) findViewById(R.id.toolbar_product_listing);
         mProductRecyclerView = (RecyclerView) findViewById(R.id.rv_product_list);
         mProgress = (ProgressBar) findViewById(R.id.pb_product_list);
+        mBottomPanel = (BottomButtonPanel) findViewById(R.id.bbp);
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("Gaming Mouses");
+
+        mBottomPanel.setOnClickListener(this);
 
         // Set layout manager to position the items
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -133,5 +140,15 @@ public class ProductListingActivity extends AppCompatActivity implements DataRep
         SharedPreferences preferences = PreferenceManager
                 .getDefaultSharedPreferences(getApplicationContext());
         preferences.edit().putBoolean("KEY_FIRST_LAUNCH", false).apply();
+    }
+
+    @Override
+    public void onLeftButtonClick() {
+        Toast.makeText(this, "Filter clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onRightButtonClick() {
+        Toast.makeText(this, "Sort clicked", Toast.LENGTH_SHORT).show();
     }
 }

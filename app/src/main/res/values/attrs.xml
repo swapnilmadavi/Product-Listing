@@ -11,4 +11,16 @@
         </attr>
         <attr name="imageSrcCompat" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="IconButtonView">
+        <attr name="ic_btn_text" format="string"/>
+        <attr name="ic_btn_textColor" format="color"/>
+        <attr name="ic_btn_textSize" format="dimension"/>
+        <attr name="ic_btn_textStyle">
+            <flag name="normal" value="0" />
+            <flag name="bold" value="1" />
+            <flag name="italic" value="2" />
+        </attr>
+        <attr name="ic_btn_imageSrc" format="integer"/>
+    </declare-styleable>
 </resources>

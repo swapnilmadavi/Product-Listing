@@ -12,4 +12,5 @@
     <dimen name="height_card_divider">1dp</dimen>
     <dimen name="text_small">12sp</dimen>
     <dimen name="text_mini">11sp</dimen>
+    <dimen name="height_bottom_panel">50dp</dimen>
 </resources>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Product Listing</string>
+    <string name="action_filter">FILTER</string>
+    <string name="action_sort">SORT</string>
 </resources>
