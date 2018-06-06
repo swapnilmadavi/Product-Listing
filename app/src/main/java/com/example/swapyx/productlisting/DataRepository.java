@@ -36,6 +36,10 @@ public class DataRepository {
         return INSTANCE;
     }
 
+    /**
+     * Initializes database with sample data and sends a callback after finishing.
+     * @param listener implementation of RepositoryListener
+     */
     public void initializeDb(final RepositoryListener listener) {
         Log.d("DataRepository", "initializing db...");
         Runnable initDbRunnable = new Runnable() {
@@ -66,7 +70,7 @@ public class DataRepository {
             public void run() {
                 final List<GamingMouse> productList = mDatabase.gamingMouseDao().getAllProducts();
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(2000); // Simulate network by delaying the execution.
                 } catch (InterruptedException ignore) {
 
                 }
@@ -84,7 +88,9 @@ public class DataRepository {
         mExecutors.diskIO().execute(getAllProductsRunnable);
     }
 
-
+    /**
+     * Interface to listen to the operations performed by the Repository.
+     */
     public interface RepositoryListener{
         void onDbInitialized();
         void onProductsFetched(List<GamingMouse> productList);

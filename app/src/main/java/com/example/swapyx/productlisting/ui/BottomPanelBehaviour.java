@@ -5,6 +5,11 @@ import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
 import android.view.View;
 
+/**
+ * A {@link CoordinatorLayout.Behavior<V>} subclass that defines the behavior of Bottom Button Panel.
+ * Can be used with other views located at the bottom of the screen.
+ * @param <V> View located at the bottom of the screen in a CoordinatorLayout.
+ */
 public class BottomPanelBehaviour<V extends View> extends CoordinatorLayout.Behavior<V> {
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, V child, View dependency) {

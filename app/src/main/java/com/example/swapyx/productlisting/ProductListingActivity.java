@@ -24,6 +24,9 @@ import com.example.swapyx.productlisting.ui.ImageWithTextView;
 
 import java.util.List;
 
+/**
+ * An {@link AppCompatActivity} subclass representing the Product List screen.
+ */
 public class ProductListingActivity extends AppCompatActivity
         implements DataRepository.RepositoryListener, BottomButtonPanel.OnClickListener {
     private Toolbar mToolbar;
@@ -50,10 +53,23 @@ public class ProductListingActivity extends AppCompatActivity
 
         mBottomPanel.setOnClickListener(this);
 
-        // attaching bottom sheet behaviour - hide / show on scroll
+        // attaching bottom view behaviour - hide / show on scroll
         CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) mBottomPanel.getLayoutParams();
         layoutParams.setBehavior(new BottomPanelBehaviour());
 
+        setProductRecyclerView();
+
+        mDataRepository = DataRepository.getInstance(GamingMouseDatabase.getInstance(this),
+                new AppExecutors());
+
+        if (isFirstLaunch()) {
+            mDataRepository.initializeDb(this);
+        } else {
+            mDataRepository.getAllProducts(this);
+        }
+    }
+
+    private void setProductRecyclerView() {
         // Set layout manager to position the items
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
 
@@ -68,41 +84,6 @@ public class ProductListingActivity extends AppCompatActivity
 
         // Attach the adapter to the recyclerview to populate items
         mProductRecyclerView.setAdapter(mProductsAdapter);
-
-        mDataRepository = DataRepository.getInstance(GamingMouseDatabase.getInstance(this),
-                new AppExecutors());
-
-        if (isFirstLaunch()) {
-            Log.d("ProductListingActivity", "first launch!!");
-            mDataRepository.initializeDb(this);
-        } else {
-            Log.d("ProductListingActivity", "Regular launch!!");
-            mDataRepository.getAllProducts(this);
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            // Respond to the action bar's Up/Home button
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onDbInitialized() {
-        changeFirstLaunchStatus();
-        mDataRepository.getAllProducts(this);
-    }
-
-    @Override
-    public void onProductsFetched(List<GamingMouse> productList) {
-        hideProgress();
-        showProductList();
-        logProducts(productList);
     }
 
     private void hideProductList() {
@@ -121,20 +102,6 @@ public class ProductListingActivity extends AppCompatActivity
         mProgress.setVisibility(View.VISIBLE);
     }
 
-    private void logProducts(final List<GamingMouse> list) {
-        Log.d("ProductListingActivity", "logProducts called");
-        for (GamingMouse product : list){
-            Log.d("ProductListingActivity", product.toString());
-        }
-
-        mProductRecyclerView.post(new Runnable() {
-            @Override
-            public void run() {
-                mProductsAdapter.addItems(list);
-            }
-        });
-    }
-
     private boolean isFirstLaunch() {
         SharedPreferences preferences = PreferenceManager
                 .getDefaultSharedPreferences(getApplicationContext());
@@ -148,10 +115,53 @@ public class ProductListingActivity extends AppCompatActivity
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * Defines actions to be taken after the db initialization.
+     */
+    @Override
+    public void onDbInitialized() {
+        changeFirstLaunchStatus();
+        mDataRepository.getAllProducts(this);
+    }
+
+    /**
+     * Defines actions to be taken after fetching the data from db.
+     * @param productList list of Products
+     */
+    @Override
+    public void onProductsFetched(final List<GamingMouse> productList) {
+        hideProgress();
+        showProductList();
+
+        mProductRecyclerView.post(new Runnable() {
+            @Override
+            public void run() {
+                mProductsAdapter.addItems(productList);
+            }
+        });
+    }
+
+    /**
+     * Defines actions to be taken on click of Filter button.
+     */
+    @Override
     public void onLeftButtonClick() {
         Toast.makeText(this, "Filter clicked", Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * Defines actions to be taken on click of Sort button.
+     */
     @Override
     public void onRightButtonClick() {
         Toast.makeText(this, "Sort clicked", Toast.LENGTH_SHORT).show();

@@ -8,6 +8,10 @@ import android.view.View;
 
 import com.example.swapyx.productlisting.R;
 
+/**
+ * Custom view representing Bottom Buttons Panel.
+ * Holds 2x {@link IconButtonView}
+ */
 public class BottomButtonPanel extends ConstraintLayout {
     private IconButtonView mIconButtonLeft;
     private IconButtonView mIconButtonRight;
@@ -67,6 +71,9 @@ public class BottomButtonPanel extends ConstraintLayout {
         this.listener = listener;
     }
 
+    /**
+     * Interface to access the button clicks.
+     */
     public interface OnClickListener{
         void onLeftButtonClick();
         void onRightButtonClick();

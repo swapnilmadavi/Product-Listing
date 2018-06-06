@@ -15,6 +15,10 @@ import com.example.swapyx.productlisting.ui.ImageWithTextView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A {@link RecyclerView.Adapter<>} subclass that binds {@link GamingMouse} data
+ * to the views in the product list.
+ */
 public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductHolder> {
 
     private List<GamingMouse> mProductList;
@@ -69,6 +73,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         }
     }
 
+    /**
+     * ViewHolder class for the Products(Gaming Mouse).
+     */
     public static class ProductHolder extends RecyclerView.ViewHolder {
         private TextView mNameTextView;
         private ImageView mImageView;

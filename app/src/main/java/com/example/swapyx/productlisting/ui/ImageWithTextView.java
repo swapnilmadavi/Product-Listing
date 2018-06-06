@@ -19,6 +19,9 @@ import android.widget.TextView;
 
 import com.example.swapyx.productlisting.R;
 
+/**
+ * Custom view representing an icon and a text together, center aligned.
+ */
 public class ImageWithTextView extends LinearLayout {
     private TextView mTextView;
     private ImageView mImageView;
