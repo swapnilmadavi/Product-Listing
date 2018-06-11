@@ -101,7 +101,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         public void bind(GamingMouse gamingMouse) {
             mNameTextView.setText(gamingMouse.getName());
             mImageView.setImageResource(gamingMouse.getImageId());
-            mUserReviewsTextView.setText(gamingMouse.getNumberOfUserReviews() + "User reviews");
+            mUserReviewsTextView.setText(gamingMouse.getNumberOfUserReviews() + " User Reviews");
             mProsView.setText(gamingMouse.getPros());
             mLikesView.setText(Integer.toString(gamingMouse.getLikes()));
             mDislikesView.setText(Integer.toString(gamingMouse.getDislikes()));
