@@ -3,6 +3,7 @@ package com.example.swapyx.productlisting;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,6 +86,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         private ImageWithTextView mDislikesView;
         private ImageWithTextView mOpinionView;
 
+        private int imageResId;
 
         public ProductHolder(View itemView) {
             super(itemView);
@@ -100,7 +102,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
 
         public void bind(GamingMouse gamingMouse) {
             mNameTextView.setText(gamingMouse.getName());
-            mImageView.setImageResource(gamingMouse.getImageId());
+
+            mImageView.setImageResource(getFallbackImage(gamingMouse.getName()));
+
             mUserReviewsTextView.setText(gamingMouse.getNumberOfUserReviews() + " User Reviews");
             mProsView.setText(gamingMouse.getPros());
             mLikesView.setText(Integer.toString(gamingMouse.getLikes()));
@@ -111,6 +115,28 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                 mOpinionView.setText(gamingMouse.getOpinion());
             } else {
                 mOpinionView.setVisibility(View.GONE);
+            }
+        }
+
+        /**
+         * Fallback method to provide image based on the name.
+         * Getter for Image id on {@link GamingMouse} object is deprecated.
+         * @param name name of the product
+         * @return image res id
+         */
+        private int getFallbackImage(String name) {
+            if (name.contains("G300s")){
+                return R.drawable.image1;
+            } else if (name.contains("XM-502")){
+                return R.drawable.image2;
+            } else if (name.contains("G102D")){
+                return R.drawable.image3;
+            } else if (name.contains("#4")){
+                return R.drawable.image4;
+            } else if (name.contains("Emera")){
+                return R.drawable.image5;
+            } else {
+                return R.drawable.image1;
             }
         }
     }

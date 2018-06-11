@@ -92,6 +92,7 @@ public class GamingMouse {
         this.price = price;
     }
 
+    @Deprecated
     public int getImageId() {
         return imageId;
     }
