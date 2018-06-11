@@ -8,9 +8,11 @@
     <color name="colorBackground">#F4F4F4</color>
     <color name="colorPrimaryText">#262626</color>
     <color name="colorSecondaryText">#797979</color>
-    <color name="colorSecondaryTextDark">#4D4D4D</color>
-    <color name="colorCardDivider">#D8D8D8</color>
+    <color name="colorSecondaryTextDark">#4B4B4B</color>
+    <color name="colorGrey">#D8D8D8</color>
+    <color name="colorCardDivider">@color/colorGrey</color>
     <color name="colorTextGreen">#00B117</color>
     <color name="colorBlack25Trans">#40000000</color>
     <color name="colorTransparent">#00000000</color>
+    <color name="colorTitle">#4F4F4F</color>
 </resources>

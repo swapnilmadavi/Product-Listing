@@ -49,7 +49,8 @@ public class ProductListingActivity extends AppCompatActivity
 
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Gaming Mouses");
+        // Remove default title text
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         mBottomPanel.setOnClickListener(this);
 
