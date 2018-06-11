@@ -157,7 +157,7 @@ public class GamingMouse {
                 ", brand : " + brand +
                 ", connection : " + connection +
                 ", price : " + price +
-                ", imageId : " + imageId +
+                /*", imageId : " + imageId +*/
                 ", num of reviews : " + numberOfUserReviews +
                 ", pros : " + pros +
                 ", opinion : " + opinion +
