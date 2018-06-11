@@ -4,8 +4,8 @@
     android:layout_height="@dimen/height_product_card"
     app:cardBackgroundColor="@color/colorWhite"
     app:cardCornerRadius="@dimen/card_corner_big"
-    app:contentPaddingTop="@dimen/padding_normal"
-    app:contentPaddingBottom="@dimen/padding_normal"
+    app:contentPaddingTop="@dimen/padding_product_card"
+    app:contentPaddingBottom="@dimen/padding_product_card"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <android.support.constraint.ConstraintLayout
@@ -36,7 +36,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_normal"
-            android:layout_marginRight="@dimen/margin_normal"
+            android:layout_marginRight="@dimen/padding_product_card"
             android:ellipsize="end"
             android:maxLines="2"
             android:textColor="@color/colorPrimaryText"
@@ -78,7 +78,7 @@
             app:textSize="@dimen/text_small"
             app:textColor="@color/colorSecondaryText"
             app:imageSrcCompat="@drawable/dislike"
-            android:layout_marginRight="@dimen/margin_normal"
+            android:layout_marginRight="@dimen/padding_product_card"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -89,7 +89,7 @@
             app:textSize="@dimen/text_small"
             app:textColor="@color/colorSecondaryText"
             app:imageSrcCompat="@drawable/like"
-            android:layout_marginRight="@dimen/margin_big"
+            android:layout_marginRight="@dimen/padding_product_card"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/ivtv_dislikes" />
 
@@ -101,7 +101,7 @@
             app:textStyle="bold"
             app:textColor="@color/colorTextGreen"
             app:imageSrcCompat="@drawable/like_green"
-            android:layout_marginLeft="@dimen/margin_big"
+            android:layout_marginLeft="@dimen/padding_product_card"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -110,7 +110,7 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/height_card_divider"
             android:background="@color/colorCardDivider"
-            android:layout_marginBottom="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/padding_product_card"
             app:layout_constraintBottom_toTopOf="@id/ivtv_dislikes"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

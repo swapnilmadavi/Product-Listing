@@ -3,11 +3,13 @@
     <dimen name="four_dp">4dp</dimen>
     <dimen name="eight_dp">8dp</dimen>
     <dimen name="sixteen_dp">16dp</dimen>
-    <dimen name="height_product_card">135dp</dimen>
+    <dimen name="height_product_card">140dp</dimen>
     <dimen name="padding_normal">@dimen/eight_dp</dimen>
+    <dimen name="padding_big">@dimen/sixteen_dp</dimen>
     <dimen name="card_corner_big">@dimen/eight_dp</dimen>
     <dimen name="margin_small">@dimen/four_dp</dimen>
     <dimen name="margin_normal">@dimen/eight_dp</dimen>
+    <dimen name="padding_product_card">12dp</dimen>
     <dimen name="margin_big">@dimen/sixteen_dp</dimen>
     <dimen name="height_card_divider">1dp</dimen>
     <dimen name="text_small">12sp</dimen>
